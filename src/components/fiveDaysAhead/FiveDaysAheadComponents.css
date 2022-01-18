@@ -1,0 +1,47 @@
+
+.days-forecast {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    background-color:  #8c88a3d0;
+    box-shadow: 2px 0px 7px #080808b4;
+    border-radius: 25px;
+    width: 500px;
+    height: 140px;
+    margin-top: 40px;
+    padding: 20px;
+    color: rgb(5, 5, 5);
+  
+}
+
+.weather-days-text {
+    text-decoration-style: solid;
+    flex-direction: row;   
+}
+
+.date {
+    text-decoration-style: solid;
+    flex-direction: row; 
+    margin-bottom: 100px;
+}
+
+.temp {
+    text-decoration-style: solid;
+    flex-direction: row;  
+    width: 100px;
+}
+
+.icon {
+    text-decoration-style: solid;
+    flex-direction: row;
+}
+
+
+.five-day-container{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    flex-direction: row;
+}
