@@ -13,8 +13,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Functionality
 
-With this application you can search the weather based on location / city
-Once you enter your location you can then view the weather for the next twelve hours as well the next five days
+With this application you can search the weather based on location / city.
+Once you enter your location you can then view the weather for the next twelve hours as well the next five days.
 
 
 
