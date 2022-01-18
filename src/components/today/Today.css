@@ -1,0 +1,53 @@
+
+.today-div-forecast {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-around;
+    margin-top: 40px;
+    margin-left: 40px;
+    background-color:  #8c88a3d0;
+    box-shadow: 2px 0px 7px #080808b4;
+    width: 327px;
+    height: 450px;
+    border-radius: 25px;
+    padding: 20px;  
+    color: rgb(5, 5, 5);
+}
+
+.city-name {
+    display: flex;
+    padding: 10px;
+    width: 135px;
+    padding-right:250px;
+    text-decoration-style: solid;
+    text-align: end;
+    height: 120px;
+    margin-left: 150px;
+}
+
+.weather-info {
+    display: flex;
+    padding: 10px;
+    width: 75px;
+    text-decoration-style: solid;
+    text-align: end;
+    height: 60px;
+    margin-left: 140px;
+    margin-bottom: 80px;
+    
+    
+}
+
+.weather-icon {
+    display: flex;
+    margin-left: 35px;
+}
+
+.date-year {
+    display: flex;
+    padding: 10px;
+    width: 150px;
+    height: 45px;
+}
