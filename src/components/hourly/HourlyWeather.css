@@ -1,0 +1,43 @@
+
+.hourly-weather {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    background-color:  #8c88a3d0;
+    box-shadow: 2px 0px 7px #080808b4;
+    width: 500px;
+    height: 140px;
+    border-radius: 25px;
+    padding: 20px;
+    color: rgb(5, 5, 5);
+    
+}
+.weather-hourly-text {
+    text-decoration-style: solid;
+    flex-direction: row;
+}
+
+.weather-temps {
+    text-decoration-style: solid;
+    flex-direction: row;
+    width: 20px;
+}
+
+.icon {
+    flex-direction: row;
+    
+} 
+
+.date {
+    flex-direction: row;
+}
+
+.hourly-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    flex-direction: row;
+}
