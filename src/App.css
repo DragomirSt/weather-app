@@ -1,0 +1,16 @@
+.app {
+    display: flex;
+    float: left;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-image: url('/src/background-image/background.jpg');
+    background-position:20% 90%;
+    background-size: cover;
+    background-attachment: fixed;
+   
+}
