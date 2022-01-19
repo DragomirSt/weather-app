@@ -11,6 +11,7 @@ import Today from './components/today/Today';
 import HourlyWheater from './components/hourly/HourlyWeather';
 import FiveDaysAhead from './components/fiveDaysAhead/FiveDaysAhead';
 import GeoPosition from './components/geoPosition/GeoPosition';
+import ErrorBoundary from './components/common/ErrorBoundary';
 
 const initialState = {
   key: null,
@@ -26,19 +27,20 @@ function App() {
   }
 
   return (
+    <ErrorBoundary>
       <DayContext.Provider value={{ cityKey, setCityKey }} >
         <main className='app'>
-        <GeoPosition />
-        <Navigation />
+          <GeoPosition />
+          <Navigation />
 
-        <Routes>
-          <Route path="/today" element={<Today />} />
-          <Route path="/hourly" element={<HourlyWheater />} />
-          <Route path="/fivedaysAhead" element={<FiveDaysAhead />} />
-        </Routes>
+          <Routes>
+            <Route path="/today" element={<Today />} />
+            <Route path="/hourly" element={<HourlyWheater />} />
+            <Route path="/fivedaysAhead" element={<FiveDaysAhead />} />
+          </Routes>
         </main>
       </DayContext.Provider>
-    
+    </ErrorBoundary>
   );
 }
 
