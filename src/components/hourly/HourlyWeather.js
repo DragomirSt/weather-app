@@ -7,7 +7,6 @@ import { DayContext } from '../../contexts/DayContext';
 import { hourlyForecastWeather } from "../../weather-forecast/weater";
 
 import HourlyComponent from './HouryComponent';
-import ErrorComponent from '../errorComponent/ErrorComponent';
 
 const HourlyWheater = () => {
 
@@ -22,14 +21,6 @@ const HourlyWheater = () => {
             });
 
     }, [cityKey.key]);
-
-    if (typeof weather === 'undefined') {
-        return (
-            <>
-                <ErrorComponent />
-            </>
-        );
-    };
 
     return (
         <div className='hourly-container'>

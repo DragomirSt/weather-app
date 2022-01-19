@@ -7,7 +7,6 @@ import { DayContext } from "../../contexts/DayContext";
 import { getWeatherFiveDays } from "../../weather-forecast/weater";
 
 import FiveDaysAheadComponent from "./FiveDaysAheadComponents";
-import ErrorComponent from '../errorComponent/ErrorComponent';
 
 const FiveDaysAhead = () => {
 
@@ -23,14 +22,6 @@ const FiveDaysAhead = () => {
             });
 
     }, [cityKey.key]);
-
-    if (typeof weather === 'undefined') {
-        return (
-            <>
-                <ErrorComponent />
-            </>
-        );
-    };
 
     return (
         <div className='five-day-container'>

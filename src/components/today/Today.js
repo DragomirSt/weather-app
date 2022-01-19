@@ -8,7 +8,6 @@ import { getWeather } from "../../weather-forecast/weater";
 import { DayContext } from '../../contexts/DayContext';
 
 import extractDate from '../../helpers/extractDate';
-import ErrorComponent from '../errorComponent/ErrorComponent';
 
 const Today = () => {
 
@@ -28,14 +27,6 @@ const Today = () => {
             });
 
     }, [cityKey.key]);
-
-    if (typeof weather === 'undefined') {
-        return (
-            <>
-                <ErrorComponent />
-            </>
-        );
-    };
 
     return (
         <div className="today-div-forecast">
