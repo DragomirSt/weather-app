@@ -1,11 +1,11 @@
 
-import './LoadingComponent.css';
+import './Common.css';
 
 const LoadingComponent = () => {
 
     return(
-        <div className='loading'>
-           <h2>Geting your foreceast ...</h2>
+        <div className='common-div'>
+           <h2>Getting your foreceast ...</h2>
         </div>
     );
 };
