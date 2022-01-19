@@ -8,12 +8,14 @@ import { hourlyForecastWeather } from "../../weather-forecast/weater";
 
 import HourlyComponent from './HouryComponent';
 import LoadingComponent from '../common/LoadingComponent';
+import useErrorHandling from '../../hooks/errorHook';
 
 const HourlyWheater = () => {
 
     const { cityKey } = useContext(DayContext);
     const [weather, setWeather] = useState([]);
     const [loading, setLoading] = useState(false);
+    const triggerError = useErrorHandling();
 
     useEffect(() => {
         setLoading(true);
@@ -23,15 +25,18 @@ const HourlyWheater = () => {
 
                 setWeather(res);
             })
+            .catch(err => {
+                triggerError(err);
+            })
             .finally(() => {
                 setLoading(false);
             })
 
-    }, [cityKey.key]);
+    }, [cityKey.key, triggerError]);
 
-    if(loading) {
+    if (loading) {
         return <>
-        <LoadingComponent/>
+            <LoadingComponent />
         </>
     };
 

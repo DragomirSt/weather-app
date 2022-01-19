@@ -9,16 +9,18 @@ import { DayContext } from '../../contexts/DayContext';
 
 import extractDate from '../../helpers/extractDate';
 import LoadingComponent from '../common/LoadingComponent';
+import useErrorHandling from '../../hooks/errorHook';
 
 const Today = () => {
 
     const [weather, setWeather] = useState([]);
     const [temp, setTemp] = useState('');
     const [loading, setLoading] = useState(false);
+    const triggerError = useErrorHandling();
 
     const { cityKey } = useContext(DayContext);
     const cityName = cityKey.cityName;
-    
+
     useEffect(() => {
         setLoading(true);
 
@@ -28,15 +30,18 @@ const Today = () => {
                 setWeather(res);
                 setTemp(res.Temperature.Metric.Value);
             })
+            .catch(err => {
+                triggerError(err);
+            })
             .finally(() => {
                 setLoading(false);
             });
 
-    }, [cityKey.key]);
+    }, [cityKey.key, triggerError]);
 
-    if(loading) {
+    if (loading) {
         return <>
-        <LoadingComponent/>
+            <LoadingComponent />
         </>
     };
 
