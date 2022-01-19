@@ -1,5 +1,6 @@
 
-import './Common.css'
+import './Common.css';
+
 const ErrorComponent = () => {
 
     return (
