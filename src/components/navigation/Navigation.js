@@ -23,19 +23,22 @@ const Navigation = () => {
                 setCityKey({ key: res.Key, cityName: res.LocalizedName });
                 navigate('/today');
             });
-            e.target.reset();      
+        e.target.reset();
     };
-  
+
     return (
         <div className="nav-flex">
             <nav className="topnav">
-                <Link to="/today">Now</Link>
-                <Link to="/hourly">Hourly</Link>
-                <Link to="/fivedaysAhead">Daily</Link>
-                <form id="form-input" action="submit" onSubmit={searchLoaction}>
+                {cityKey.key ?
+                    <>
+                        <Link to="/today">Now</Link>
+                        <Link to="/hourly">Hourly</Link>
+                        <Link to="/fivedaysAhead">Daily</Link>
+                    </>
+                    : <></>}
+                <form className="form-input" action="submit" onSubmit={searchLoaction}>
                     <input type="text" name="city" placeholder="Search location..." />
                 </form>
-                <div>weather in: <h3>{cityKey.cityName}</h3></div>
             </nav>
         </div>
     );
