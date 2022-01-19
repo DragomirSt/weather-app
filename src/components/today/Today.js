@@ -17,8 +17,8 @@ const Today = () => {
     const [loading, setLoading] = useState(false);
 
     const { cityKey } = useContext(DayContext);
-
     const cityName = cityKey.cityName;
+    
     useEffect(() => {
         setLoading(true);
 
