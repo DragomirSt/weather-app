@@ -8,25 +8,37 @@ import { getWeather } from "../../weather-forecast/weater";
 import { DayContext } from '../../contexts/DayContext';
 
 import extractDate from '../../helpers/extractDate';
+import LoadingComponent from '../common/LoadingComponent';
 
 const Today = () => {
 
     const [weather, setWeather] = useState([]);
     const [temp, setTemp] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const { cityKey } = useContext(DayContext);
 
     const cityName = cityKey.cityName;
     useEffect(() => {
-        
+        setLoading(true);
+
         return getWeather(cityKey.key)
             .then(res => {
+
                 setWeather(res);
                 setTemp(res.Temperature.Metric.Value);
-
+            })
+            .finally(() => {
+                setLoading(false);
             });
 
     }, [cityKey.key]);
+
+    if(loading) {
+        return <>
+        <LoadingComponent/>
+        </>
+    };
 
     return (
         <div className="today-div-forecast">
