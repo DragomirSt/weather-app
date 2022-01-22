@@ -31,14 +31,20 @@ const Navigation = () => {
             <nav className="topnav">
                 {cityKey.key ?
                     <>
-                        <Link to="/today">Now</Link>
-                        <Link to="/hourly">Hourly</Link>
-                        <Link to="/fivedaysAhead">Daily</Link>
+                        <Link className='active' to="/today">Now</Link>
+                        <Link className='active' to="/hourly">Hourly</Link>
+                        <Link className='active' to="/fivedaysAhead">Daily</Link>
                     </>
                     : <></>}
                 <form className="form-input" action="submit" onSubmit={searchLoaction}>
-                    <input type="text" name="city" placeholder="Search location..." />
+                    <input type="text" name="city" placeholder="Enter your location..." />
                 </form>
+                {cityKey.cityName ?
+                    <div className='city'>
+                        weather in: {cityKey.cityName}
+                    </div>
+
+                    : <></>}
             </nav>
         </div>
     );
