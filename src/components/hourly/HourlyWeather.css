@@ -8,16 +8,18 @@
     align-content: center;
     background-color:  #8c88a3d0;
     box-shadow: 2px 0px 7px #080808b4;
-    width: 500px;
-    height: 140px;
+    width: 425px;
+    height: 100px;
     border-radius: 25px;
     padding: 20px;
     color: rgb(5, 5, 5);
     
 }
 .weather-hourly-text {
-    text-decoration-style: solid;
-    flex-direction: row;
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;
+    
 }
 
 .weather-temps {
@@ -28,7 +30,7 @@
 
 .icon {
     flex-direction: row;
-    
+   
 } 
 
 .date {
@@ -40,4 +42,10 @@
     flex-wrap: wrap; 
     justify-content: space-around;
     flex-direction: row;
+}
+
+.time {
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;
 }

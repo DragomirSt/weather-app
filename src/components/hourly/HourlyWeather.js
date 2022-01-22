@@ -13,6 +13,7 @@ import useErrorHandling from '../../hooks/errorHook';
 const HourlyWheater = () => {
 
     const { cityKey } = useContext(DayContext);
+
     const [weather, setWeather] = useState([]);
     const [loading, setLoading] = useState(false);
     const triggerError = useErrorHandling();
@@ -31,7 +32,7 @@ const HourlyWheater = () => {
             .finally(() => {
                 setLoading(false);
             })
-
+            
     }, [cityKey.key, triggerError]);
 
     if (loading) {
