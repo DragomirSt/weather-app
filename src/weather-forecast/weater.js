@@ -26,7 +26,7 @@ export const hourlyForecastWeather = async (id) => {
 export const getWeatherFiveDays = async (id) => {
 
     try {
-        const queary = `${id}?apikey=${key}`;
+        const queary = `${id}?apikey=${key}&details=true`;
 
         let res = await fetch(`${fiveDaysAhead}/${queary}`);
         const data = await res.json();
@@ -64,7 +64,7 @@ export const getLocation = async (city) => {
 
         let res = await fetch(`${locationBase}/${queary}`);
         const data = await res.json();
-
+        console.log(data)
         return data[0];
 
     } catch (error) {
