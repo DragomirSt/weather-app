@@ -2,7 +2,6 @@
 .topnav {
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
     width: 1300px;
     margin-top: 15px;
     margin-left: 10px;
@@ -10,6 +9,11 @@
     box-shadow: 2px 0px 7px #080808b4;
     border-radius: 25px;
     padding: 1px;
+}
+
+.nav-flex {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .topnav a {

@@ -1,6 +1,5 @@
 .app {
     display: flex;
-    float: left;
     flex-wrap: wrap; 
     justify-content: space-evenly;
     flex-direction: row;

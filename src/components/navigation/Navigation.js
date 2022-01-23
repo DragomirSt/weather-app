@@ -11,8 +11,8 @@ const Navigation = () => {
 
     const navigate = useNavigate();
     const { cityKey, setCityKey } = useContext(DayContext);
-
-    const searchLoaction = (e) => {
+   
+    const useSearchLoaction = (e) => {
         e.preventDefault();
         let formData = new FormData(e.target);
         let city = formData.get('city');
@@ -22,12 +22,12 @@ const Navigation = () => {
 
                 setCityKey({ key: res.Key, cityName: res.LocalizedName });
                 navigate('/today');
-            });
+            })
         e.target.reset();
     };
-
+  
     return (
-        <div className="nav-flex">
+        
             <nav className="topnav">
                 {cityKey.key ?
                     <>
@@ -36,7 +36,7 @@ const Navigation = () => {
                         <Link className='active' to="/fivedaysAhead">Daily</Link>
                     </>
                     : <></>}
-                <form className="form-input" action="submit" onSubmit={searchLoaction}>
+                <form className="form-input" action="submit" onSubmit={useSearchLoaction}>
                     <input type="text" name="city" placeholder="Enter your location..." />
                 </form>
                 {cityKey.cityName ?
@@ -46,7 +46,7 @@ const Navigation = () => {
 
                     : <></>}
             </nav>
-        </div>
+        
     );
 };
 
