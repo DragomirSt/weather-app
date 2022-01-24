@@ -64,7 +64,7 @@ export const getLocation = async (city) => {
 
         let res = await fetch(`${locationBase}/${queary}`);
         const data = await res.json();
-        console.log(data)
+        
         return data[0];
 
     } catch (error) {
