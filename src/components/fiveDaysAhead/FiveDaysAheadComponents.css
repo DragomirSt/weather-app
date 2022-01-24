@@ -29,6 +29,7 @@
     border-radius: 20px;
     font-size: 14px;
     grid-area: button;
+    border: none;
 } 
 
 .toggle-button-hide {
@@ -38,6 +39,7 @@
     height: 30px;
     border-radius: 20px;
     font-size: 14px;
+    border: none;
 }
 
 .date {

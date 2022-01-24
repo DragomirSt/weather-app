@@ -49,3 +49,15 @@
     font-size: 18px;
     text-shadow: 2px 0px 7px #080808b4;
 }
+
+.btn-details {
+    margin-top: 20px;
+    background-color: rgb(218, 205, 205);
+    box-shadow: 2px 0px 7px #080808b4;
+    width: 95px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: none;
+
+}
