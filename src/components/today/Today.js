@@ -47,33 +47,29 @@ const Today = () => {
 
     return (
         <div className="today-div-forecast">
-            <div className="city-name">
-                <h3>
+            <div className="city-name-temp">
+                <div className='city-name'>
                     {cityName}
                     <br></br>
-                    <br></br>
-                    {temp}
-                    <>*C</>
-                </h3>
-                <div className="weather-icon">
-                    <img src={`./icons/icon${weather.WeatherIcon}.png`} alt="" />
                 </div>
+                <h2 className='city-temps'>
+                    {temp} *C
+                </h2>
             </div>
-            <h4>
-                <div className="weather-info">
-                    {weather.WeatherText}
-                </div>
-            </h4>
-            <h4>
-                <div className="date-year">
-                    {extractDate(weather.LocalObservationDateTime)}
-                </div>
-            </h4>
+            <div className="weather-icon">
+                <img src={`./icons/icon${weather.WeatherIcon}.png`} alt="" />
+            </div>
+            <div className="weather-info">
+                {weather.WeatherText}
+            </div>
+            <div className="date">
+                {extractDate(weather.LocalObservationDateTime)}
+            </div>
             <div className="fivedaysBtn">
-                <Link to="/hourly">Hourly</Link>
-                <br></br>
-                <br></br>
                 <Link to="/fivedaysAhead">Daily</Link>
+            </div>
+            <div className='hourlyBtn'>
+                <Link to="/hourly">Hourly</Link>
             </div>
         </div>
     );
