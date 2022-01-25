@@ -23,7 +23,7 @@ const HourlyWheater = () => {
 
         return hourlyForecastWeather(cityKey.key)
             .then(res => {
-
+             
                 setWeather(res);
             })
             .catch(err => {
