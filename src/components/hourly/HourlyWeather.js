@@ -4,7 +4,7 @@ import './HourlyWeather.css';
 import { useEffect, useState, useContext } from "react";
 
 import { DayContext } from '../../contexts/DayContext';
-import { hourlyForecastWeather } from "../../weather-forecast/weater";
+import { hourlyForecastWeather } from "../../weather-forecast/weather";
 
 import HourlyComponent from './HouryComponent';
 import LoadingComponent from '../common/LoadingComponent';

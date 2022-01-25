@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 
 import { DayContext } from '../../contexts/DayContext';
-import { getLocation } from '../../weather-forecast/weater';
+import { getLocation } from '../../weather-forecast/weather';
 
 const Navigation = () => {
 
@@ -19,7 +19,7 @@ const Navigation = () => {
 
         getLocation(city)
             .then(res => {
-
+           
                 setCityKey({ key: res.Key, cityName: res.LocalizedName });
                 navigate('/today');
             })
@@ -31,9 +31,9 @@ const Navigation = () => {
             <nav className="topnav">
                 {cityKey.key ?
                     <>
-                        <Link className='active' to="/today">Now</Link>
-                        <Link className='active' to="/hourly">Hourly</Link>
-                        <Link className='active' to="/fivedaysAhead">Daily</Link>
+                        <Link to="/today">Now</Link>
+                        <Link to="/hourly">Hourly</Link>
+                        <Link to="/daily">Daily</Link>
                     </>
                     : <></>}
                 <form className="form-input" action="submit" onSubmit={useSearchLoaction}>

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DayContext } from '../../contexts/DayContext';
 
-import { geoLocation } from '../../weather-forecast/weater';
+import { geoLocation } from '../../weather-forecast/weather';
 
 const GeoPosition = () => {
 

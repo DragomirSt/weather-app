@@ -36,7 +36,7 @@ function App() {
           <Routes>
             <Route path="/today" element={<Today />} />
             <Route path="/hourly" element={<HourlyWheater />} />
-            <Route path="/fivedaysAhead" element={<FiveDaysAhead />} />
+            <Route path="/daily" element={<FiveDaysAhead />} />
           </Routes>
         </main>
       </DayContext.Provider>

@@ -4,7 +4,7 @@ import './FiveDaysAheadComponents.css';
 import { useEffect, useState, useContext } from "react";
 
 import { DayContext } from "../../contexts/DayContext";
-import { getWeatherFiveDays } from "../../weather-forecast/weater";
+import { getWeatherFiveDays } from "../../weather-forecast/weather";
 
 import FiveDaysAheadComponent from "./FiveDaysAheadComponents";
 import LoadingComponent from '../common/LoadingComponent';

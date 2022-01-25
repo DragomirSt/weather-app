@@ -4,7 +4,7 @@ import './Today.css';
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getWeather } from "../../weather-forecast/weater";
+import { getWeather } from "../../weather-forecast/weather";
 import { DayContext } from '../../contexts/DayContext';
 
 import extractDate from '../../helpers/extractDate';
