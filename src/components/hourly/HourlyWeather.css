@@ -1,40 +1,128 @@
 
 .hourly-weather {
-    display: flex;
-    margin-top: 40px;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
+    display: grid;
+    grid-template-columns: 150px 200px 150px;
+    grid-template-rows: auto 10px 64px;
+    grid-template-areas: 
+    "time weather temp"
+    "iconImg iconImg temperature"
+    "button button button";
+    
     background-color:  #8c88a3d0;
     box-shadow: 2px 0px 7px #080808b4;
+    margin-top: 40px;
     width: 425px;
-    height: 100px;
+    height: 110px;
     border-radius: 25px;
     padding: 20px;
     color: rgb(5, 5, 5);
-    
 }
-.weather-hourly-text {
+
+.temps {
+    grid-area: temp;
     color: ivory;
     font-size: 18px;
-    text-shadow: 2px 0px 7px #080808b4;
-    
+    text-shadow: 2px 0px 7px #080808b4;  
 }
 
 .weather-temps {
-    text-decoration-style: solid;
-    flex-direction: row;
-    width: 20px;
+    grid-area: temperature;
+}
+.weather-hourly-text {
+    grid-area: weather;
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;   
+}
+
+.time {
+    grid-area: time;
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;
 }
 
 .icon {
-    flex-direction: row;
-   
-} 
+    grid-area: iconImg;
+}
 
-.date {
-    flex-direction: row;
+.hourly-weather-details {
+    display: grid;
+
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: auto 5px 100px; 
+    grid-template-areas: 
+    "rain weather wind"
+    ". weatherDesc speed"
+    "button button button";
+  
+    background-color:  #8c88a3d0;
+    box-shadow: 2px 0px 7px #080808b4;
+    margin-top: 40px;
+    width: 425px;
+    height: 110px;
+    border-radius: 25px;
+    padding: 20px;
+    color: rgb(5, 5, 5);
+}
+
+.rain {
+    grid-area: rain;
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;
+}
+
+.weather {
+    grid-area: weather;
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;
+}
+
+.weather-text-details {
+    grid-area: weatherDesc;
+}
+
+.wind {
+    grid-area: wind;
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;
+}
+
+.wind-speed {
+    grid-area: speed;
+}
+
+.button {
+    grid-area: button;
+}
+
+.button-details {
+    grid-area: button;
+}
+
+.btn-details {
+    background-color: rgb(218, 205, 205);
+    box-shadow: 2px 0px 7px #080808b4;
+    width: 95px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 30px;
+    border: none;
+}
+
+.btn-hide-details {
+    background-color: rgb(218, 205, 205);
+    box-shadow: 2px 0px 7px #080808b4;
+    width: 95px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 50px;
+    border: none;
 }
 
 .hourly-container {
@@ -42,22 +130,4 @@
     flex-wrap: wrap; 
     justify-content: space-around;
     flex-direction: row;
-}
-
-.time {
-    color: ivory;
-    font-size: 18px;
-    text-shadow: 2px 0px 7px #080808b4;
-}
-
-.btn-details {
-    margin-top: 20px;
-    background-color: rgb(218, 205, 205);
-    box-shadow: 2px 0px 7px #080808b4;
-    width: 95px;
-    height: 30px;
-    border-radius: 20px;
-    font-size: 14px;
-    border: none;
-
 }
