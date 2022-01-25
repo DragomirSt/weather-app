@@ -7,9 +7,9 @@ const fiveDaysAhead = 'http://dataservice.accuweather.com/forecasts/v1/daily/5da
 const hourlyForecast = 'http://dataservice.accuweather.com/forecasts/v1/hourly/12hour';
 
 export const hourlyForecastWeather = async (id) => {
-
+    
     try {
-        const queary = `${id}?apikey=${key}`;
+        const queary = `${id}?apikey=${key}&details=true`;
 
         let res = await fetch(`${hourlyForecast}/${queary}`);
         const data = await res.json();
@@ -17,14 +17,13 @@ export const hourlyForecastWeather = async (id) => {
         return data;
 
     } catch (error) {
-
         alert('Cannot connect to the server :(');
         return;
     }
 };
 
 export const getWeatherFiveDays = async (id) => {
-
+    
     try {
         const queary = `${id}?apikey=${key}&details=true`;
 
@@ -34,7 +33,6 @@ export const getWeatherFiveDays = async (id) => {
         return data;
 
     } catch (error) {
-
         alert('Cannot connect to the server :(');
         return;
     }
@@ -51,7 +49,6 @@ export const getWeather = async (id) => {
         return data[0];
 
     } catch (error) {
-
         alert('Cannot connect to the server :(');
         return;
     }
@@ -64,11 +61,10 @@ export const getLocation = async (city) => {
 
         let res = await fetch(`${locationBase}/${queary}`);
         const data = await res.json();
-        
+
         return data[0];
 
     } catch (error) {
-
         alert('Cannot connect to the server :(');
         return;
     }
@@ -77,16 +73,15 @@ export const getLocation = async (city) => {
 export const geoLocation = async (lat, long) => {
 
     try {
-
-    let res = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${lat}%2C%20${long}&details=toplevel%3Dtrue`);
-    const data = await res.json();
-
-    return data;
+        let res = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${lat}%2C%20${long}&details=toplevel%3Dtrue`);
         
+        const data = await res.json();
+        return data;
+
     } catch (error) {
         alert('Cannot connect to the server :(');
-        return; 
-    }
-}
+        return;
+    };
+};
 
 
