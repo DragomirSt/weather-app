@@ -20,8 +20,12 @@
 
 .city-name-temp {
    grid-area: city;
+}
 
-    
+.date {
+    grid-area: date;
+    color: ivory;
+    text-shadow: 2px 0px 7px #080808b4; 
 }
 
 .city-name {
@@ -40,7 +44,6 @@
   font-size: 20px;
   text-shadow: 2px 0px 7px #080808b4; 
 }
-
 
 .temps {
     grid-area: temp;
@@ -79,10 +82,4 @@
 
 .hourlyBtn a:hover {
     color: ivory;
-}
-
-.date {
-    grid-area: date;
-    color: ivory;
-    text-shadow: 2px 0px 7px #080808b4; 
 }
