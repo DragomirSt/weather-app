@@ -19,11 +19,15 @@ const HourlyWheater = () => {
     const triggerError = useErrorHandling();
 
     useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
         setLoading(true);
 
-        return hourlyForecastWeather(cityKey.key)
+        hourlyForecastWeather(cityKey.key, {
+            signal: signal
+        })
             .then(res => {
-             
+
                 setWeather(res);
             })
             .catch(err => {
@@ -32,7 +36,10 @@ const HourlyWheater = () => {
             .finally(() => {
                 setLoading(false);
             })
-            
+        return () => {
+            signal.abort();
+        };
+
     }, [cityKey.key, triggerError]);
 
     if (loading) {

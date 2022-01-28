@@ -22,9 +22,13 @@ const Today = () => {
     const cityName = cityKey.cityName;
 
     useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
         setLoading(true);
 
-        return getWeather(cityKey.key)
+        getWeather(cityKey.key, {
+            signal: signal
+        })
             .then(res => {
 
                 setWeather(res);
@@ -36,8 +40,11 @@ const Today = () => {
             .finally(() => {
                 setLoading(false);
             });
+        return () => {
+            controller.abort();
+        };
 
-    }, [cityKey.key, triggerError]);
+    }, [cityKey, triggerError]);
 
     if (loading) {
         return <>

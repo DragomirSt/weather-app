@@ -13,17 +13,21 @@ import useErrorHandling from '../../hooks/errorHook';
 const FiveDaysAhead = () => {
 
     const { cityKey } = useContext(DayContext);
-    
+
     const [weather, setWeather] = useState([]);
     const [loading, setLoading] = useState(false);
     const triggerError = useErrorHandling();
 
     useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
         setLoading(true);
 
-        return getWeatherFiveDays(cityKey.key)
+        getWeatherFiveDays(cityKey.key, {
+            signal: signal
+        })
             .then(res => {
-                
+
                 setWeather(res.DailyForecasts);
             })
             .catch(err => {
@@ -31,10 +35,13 @@ const FiveDaysAhead = () => {
             })
             .finally(() => {
                 setLoading(false);
-            })
+            });
+        return () => {
+            signal.abort();
+        };
 
     }, [cityKey.key, triggerError]);
-  
+
     if (loading) {
         return <>
             <LoadingComponent />
