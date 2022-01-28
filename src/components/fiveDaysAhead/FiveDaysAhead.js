@@ -37,7 +37,7 @@ const FiveDaysAhead = () => {
                 setLoading(false);
             });
         return () => {
-            signal.abort();
+            controller.abort();
         };
 
     }, [cityKey.key, triggerError]);
