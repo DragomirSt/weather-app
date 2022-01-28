@@ -24,24 +24,24 @@ function App() {
 
   const setCityKey = (key) => {
     setKey(key)
-  }
+  };
 
   return (
     <ErrorBoundary>
       <DayContext.Provider value={{ cityKey, setCityKey }} >
         <main className='app'>
-          <GeoPosition />
           <Navigation />
 
           <Routes>
-            <Route path="/today" element={<Today />} />
-            <Route path="/hourly" element={<HourlyWheater />} />
-            <Route path="/daily" element={<FiveDaysAhead />} />
+            <Route path='/today' element={<Today />} />
+            <Route path='/hourly' element={<HourlyWheater />} />
+            <Route path='/daily' element={<FiveDaysAhead />} />
+            <Route path='/location' element={<GeoPosition />} />
           </Routes>
         </main>
       </DayContext.Provider>
     </ErrorBoundary>
   );
-}
+};
 
 export default App;
