@@ -20,12 +20,12 @@ const Today = () => {
 
     const { cityKey } = useContext(DayContext);
     const cityName = cityKey.cityName;
-
+    
     useEffect(() => {
         const controller = new AbortController();
         const signal = controller.signal;
         setLoading(true);
-
+        
         getWeather(cityKey.key, {
             signal: signal
         })
@@ -51,7 +51,7 @@ const Today = () => {
             <LoadingComponent />
         </>
     };
-
+    
     return (
         <div className="today-div-forecast">
             <div className="city-name-temp">
@@ -73,14 +73,13 @@ const Today = () => {
                 {extractDate(weather.LocalObservationDateTime)}
             </div>
             <div className="fivedaysBtn">
-                <Link to="/fivedaysAhead">Daily</Link>
+                <Link to="/daily">Daily</Link>
             </div>
             <div className='hourlyBtn'>
                 <Link to="/hourly">Hourly</Link>
             </div>
         </div>
     );
-
 };
 
 export default Today;
