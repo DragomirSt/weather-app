@@ -2,7 +2,7 @@
 import './Navigation.css';
 
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import { DayContext } from '../../contexts/DayContext';
 import { getLocation } from '../../weather-forecast/weather';
@@ -23,11 +23,13 @@ const Navigation = () => {
                 setCityKey({ key: res.Key, cityName: res.LocalizedName });
                 navigate('/today');
             })
+            .catch(err => {
+               alert('Cannot find your location');
+            })   
         e.target.reset();
     };
 
     return (
-
         <nav className="topnav">
             {cityKey.key ?
                 <>
