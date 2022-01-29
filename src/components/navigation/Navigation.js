@@ -3,30 +3,30 @@ import './Navigation.css';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 import { DayContext } from '../../contexts/DayContext';
 import { getLocation } from '../../weather-forecast/weather';
+
 
 const Navigation = () => {
 
     const navigate = useNavigate();
     const { cityKey, setCityKey } = useContext(DayContext);
+    const [city, setCity] = useState('')
 
     const searchLocation = (e) => {
         e.preventDefault();
-        let formData = new FormData(e.target);
-        let city = formData.get('city');
 
-        getLocation(city)
+        getLocation(city.label.split(',')[0])
             .then(res => {
 
                 setCityKey({ key: res.Key, cityName: res.LocalizedName });
                 navigate('/today');
             })
             .catch(err => {
-               alert('Cannot find your location');
-            })   
-        e.target.reset();
+                alert('Cannot find your location');
+            });
     };
 
     return (
@@ -38,8 +38,13 @@ const Navigation = () => {
                     <Link to="/daily">Daily</Link>
                 </>
                 : <Link to="/location">location</Link>}
-            <form className="form-input" action="submit" onSubmit={searchLocation}>
-                <input type="text" name="city" placeholder="Enter your location..." />
+            <form className="form-input" onSubmit={searchLocation}>
+                <GooglePlacesAutocomplete
+                    selectProps={{
+                        city,
+                        onChange: setCity,
+                    }}
+                />
             </form>
             {cityKey.cityName ?
                 <div className='city'>
