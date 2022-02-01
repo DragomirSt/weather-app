@@ -8,15 +8,12 @@ import { getWeatherFiveDays } from "../../weather-forecast/weather";
 
 import FiveDaysAheadComponent from "./FiveDaysAheadComponents";
 import LoadingComponent from '../common/LoadingComponent';
-import useErrorHandling from '../../hooks/errorHook';
 
 const FiveDaysAhead = () => {
-
-    const { cityKey } = useContext(DayContext);
-
     const [weather, setWeather] = useState([]);
     const [loading, setLoading] = useState(false);
-    const triggerError = useErrorHandling();
+
+    const { cityKey } = useContext(DayContext);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -30,9 +27,6 @@ const FiveDaysAhead = () => {
 
                 setWeather(res.DailyForecasts);
             })
-            .catch(err => {
-                triggerError(err);
-            })
             .finally(() => {
                 setLoading(false);
             });
@@ -40,7 +34,7 @@ const FiveDaysAhead = () => {
             controller.abort();
         };
 
-    }, [cityKey.key, triggerError]);
+    }, [cityKey.key]);
 
     if (loading) {
         return <>
