@@ -1,8 +1,6 @@
 
 import React from 'react';
 
-import { ErrorContext } from '../../contexts/ErrorContext';
-
 import ErrorComponent from './ErrorComponent';
 
 class ErrorBoundary extends React.Component {
@@ -15,18 +13,15 @@ class ErrorBoundary extends React.Component {
         return { hasError: true };
     };
 
-    triggerError = () => {
-        this.setState({ hasError: true });
-    };
-
     render() {
-        return (
-            <ErrorContext.Provider value={this.triggerError}>
-                {this.state.hasError
-                    ? <ErrorComponent />
-                    : this.props.children}
-            </ErrorContext.Provider>
-        );
+        if (this.state.hasError) {
+            return (
+                <div>
+                    <ErrorComponent />
+                </div>
+            );
+        };
+        return this.props.children;
     };
 };
 
