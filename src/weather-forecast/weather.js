@@ -67,9 +67,10 @@ export const getLocation = async (city) => {
 };
 
 export const geoLocation = async (lat, long) => {
-
+    const url = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${lat}%2C%20${long}&details=toplevel%3Dtrue`
+    url = url.replace(/^http:\/\//i, 'https://');
     try {
-        let res = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${lat}%2C%20${long}&details=toplevel%3Dtrue`);
+        let res = await fetch(url);
 
         const data = await res.json();
         return data;
