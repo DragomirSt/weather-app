@@ -7,7 +7,7 @@ const fiveDaysAhead = 'http://dataservice.accuweather.com/forecasts/v1/daily/5da
 const hourlyForecast = 'http://dataservice.accuweather.com/forecasts/v1/hourly/12hour';
 
 export const hourlyForecastWeather = async (id) => {
-    
+
     try {
         const queary = `${id}?apikey=${key}&details=true`;
 
@@ -18,12 +18,11 @@ export const hourlyForecastWeather = async (id) => {
 
     } catch (error) {
         alert('Cannot connect to the server :(');
-        return;
     }
 };
 
 export const getWeatherFiveDays = async (id) => {
-    
+
     try {
         const queary = `${id}?apikey=${key}&details=true`;
 
@@ -34,7 +33,6 @@ export const getWeatherFiveDays = async (id) => {
 
     } catch (error) {
         alert('Cannot connect to the server :(');
-        return;
     }
 };
 
@@ -50,7 +48,6 @@ export const getWeather = async (id) => {
 
     } catch (error) {
         alert('Cannot connect to the server :(');
-        return;
     }
 };
 
@@ -66,7 +63,6 @@ export const getLocation = async (city) => {
 
     } catch (error) {
         alert('Cannot connect to the server :(');
-        return;
     }
 };
 
@@ -74,14 +70,11 @@ export const geoLocation = async (lat, long) => {
 
     try {
         let res = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${lat}%2C%20${long}&details=toplevel%3Dtrue`);
-        
+
         const data = await res.json();
         return data;
 
     } catch (error) {
         alert('Cannot connect to the server :(');
-        return;
     };
 };
-
-
