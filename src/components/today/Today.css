@@ -4,7 +4,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
-    "city date date"
+    "city . date"
     "weatherInfo temps weatherIcon"
     "btnDaily . btnHourly";
     gap: 1rem 1rem 0.5rem 0.5rem;
@@ -29,7 +29,7 @@
     grid-area: date;
     color: ivory;
     text-shadow: 2px 0px 7px #080808b4; 
-    justify-self: center;
+    justify-self: start;
 }
 
 .city-name {
