@@ -5,12 +5,12 @@
     grid-template-rows: auto 10px 64px;
     grid-template-areas: 
     "time weather temp"
-    "iconImg iconImg temperature"
+    ". iconImg temperature"
     "button button button";
     
     background-color:  #8c88a3d0;
     box-shadow: 2px 0px 7px #080808b4;
-    margin-top: 40px;
+    margin-top: 30px;
     width: 425px;
     height: 110px;
     border-radius: 25px;
@@ -50,15 +50,15 @@
     display: grid;
 
     grid-template-columns: 150px 150px 150px;
-    grid-template-rows: auto 5px 100px; 
+    grid-template-rows: auto; 
     grid-template-areas: 
     "rain weather wind"
-    ". weatherDesc speed"
-    "button button button";
+    ". cloud speed"
+    "button . .";
   
     background-color:  #8c88a3d0;
     box-shadow: 2px 0px 7px #080808b4;
-    margin-top: 40px;
+    margin-top: 30px;
     width: 425px;
     height: 110px;
     border-radius: 25px;
@@ -81,7 +81,7 @@
 }
 
 .weather-text-details {
-    grid-area: weatherDesc;
+    grid-area: cloud;
 }
 
 .wind {
@@ -109,9 +109,13 @@
     width: 95px;
     height: 30px;
     border-radius: 20px;
-    font-size: 14px;
-    margin-top: 30px;
+    font-size: 15px;
+    margin-top: 34px;
     border: none;
+}
+
+.btn-details:hover {
+    cursor: pointer;
 }
 
 .btn-hide-details {
@@ -120,14 +124,17 @@
     width: 95px;
     height: 30px;
     border-radius: 20px;
-    font-size: 14px;
-    margin-top: 50px;
+    font-size: 15px;
     border: none;
+}
+
+.btn-hide-details:hover {
+    cursor: pointer;
 }
 
 .hourly-container {
     display: flex;
     flex-wrap: wrap; 
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
 }
