@@ -1,8 +1,6 @@
 
 import { useState } from 'react';
 
-import extractTime from '../../helpers/extractTime';
-
 const HourlyComponent = ({
     weatherInfo
 }) => {
