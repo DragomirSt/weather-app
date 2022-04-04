@@ -9,7 +9,7 @@ import { DayContext } from './contexts/DayContext';
 import Navigation from "./components/navigation/Navigation";
 import Today from './components/today/Today';
 import HourlyWheater from './components/hourly/HourlyWeather';
-import FiveDaysAhead from './components/fiveDaysAhead/FiveDaysAhead';
+import WeatherAhead from './components/weatherAhead/WeatherAhead';
 import GeoPosition from './components/geoPosition/GeoPosition';
 import ErrorBoundary from './components/common/ErrorBoundary';
 
@@ -35,9 +35,14 @@ function App() {
           <Routes>
             <Route path='/today' element={<Today />} />
             <Route path='/hourly' element={<HourlyWheater />} />
-            <Route path='/daily' element={<FiveDaysAhead />} />
+            <Route path='/daily' element={<WeatherAhead />} />
             <Route path='/location' element={<GeoPosition />} />
           </Routes>
+          <footer className='footer'>
+            <div>
+              Weather Application
+            </div>
+          </footer>
         </main>
       </DayContext.Provider>
     </ErrorBoundary>

@@ -1,8 +1,10 @@
+
 .app {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-evenly;
     flex-direction: row;
+    margin-bottom: 60px;
 }
 
 body {
@@ -11,5 +13,25 @@ body {
     background-position:20% 90%;
     background-size: cover;
     background-attachment: fixed;
-   
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    background-color:  #8c88a3d0;
+    box-shadow: 2px 0px 7px #080808b4;
+    border-radius: 25px;
+    padding: 1px;
+}
+
+.footer>div {
+    text-align: center;
+    color: ivory;
+    font-size: 18px;
+    text-shadow: 2px 0px 7px #080808b4;   
 }
