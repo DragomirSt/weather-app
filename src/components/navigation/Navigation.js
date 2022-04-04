@@ -6,27 +6,17 @@ import { useContext, useState } from 'react';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 import { DayContext } from '../../contexts/DayContext';
-import { getLocation } from '../../weather-forecast/weather';
-
 
 const Navigation = () => {
 
     const navigate = useNavigate();
     const { cityKey, setCityKey } = useContext(DayContext);
-    const [city, setCity] = useState('')
+    const [city, setCity] = useState('');
 
     const searchLocation = (e) => {
         e.preventDefault();
-
-        getLocation(city.label.split(',')[0])
-            .then(res => {
-
-                setCityKey({ key: res.Key, cityName: res.LocalizedName });
-                navigate('/today');
-            })
-            .catch(err => {
-                alert('Cannot find your location');
-            });
+        setCityKey({ key: city.label.split(',')[0] });
+        navigate('/today');
     };
 
     return (
@@ -46,9 +36,9 @@ const Navigation = () => {
                     }}
                 />
             </form>
-            {cityKey.cityName ?
+            {cityKey.key ?
                 <div className='city'>
-                    weather in: {cityKey.cityName}
+                    weather in: {cityKey.key}
                 </div>
                 : null}
         </nav>

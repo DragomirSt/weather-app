@@ -1,81 +1,39 @@
 
-const key = 'qbqm3RUXAPYRA1RzXIyywa6YXbZEwEZa';
-
-const locationBase = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-const weatherBase = 'http://dataservice.accuweather.com/currentconditions/v1';
-const fiveDaysAhead = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day';
-const hourlyForecast = 'http://dataservice.accuweather.com/forecasts/v1/hourly/12hour';
-
-export const hourlyForecastWeather = async (id) => {
-
+export const currentWeather = async (city) => {
     try {
-        const queary = `${id}?apikey=${key}&details=true`;
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${city}&aqi=no`;
+        const response = await fetch(url);
+        const weatherData = await response.json();
 
-        let res = await fetch(`${hourlyForecast}/${queary}`);
-        const data = await res.json();
-
-        return data;
+        return weatherData;
 
     } catch (error) {
-        alert('Cannot connect to the server :(');
-    }
+        alert('Cannot conect to server :(');
+    };
 };
 
-export const getWeatherFiveDays = async (id) => {
-
+export const getGeoLocation = async (lat, long) => {
     try {
-        const queary = `${id}?apikey=${key}&details=true`;
+        const url = `https://api.weatherapi.com/v1/search.json?key=${process.env.REACT_APP_API_KEY}&q=${lat}%2C%20${long}`;
+        const response = await fetch(url);
+        const weatherData = await response.json();
 
-        let res = await fetch(`${fiveDaysAhead}/${queary}`);
-        const data = await res.json();
-
-        return data;
+        return weatherData;
 
     } catch (error) {
-        alert('Cannot connect to the server :(');
-    }
+        alert('Cannot conect to server :(');
+    };
 };
 
-export const getWeather = async (id) => {
-
+export const getWeatherAhead = async (city) => {
     try {
-        const queary = `${id}?apikey=${key}`;
-
-        let res = await fetch(`${weatherBase}/${queary}`);
-        const data = await res.json();
-
-        return data[0];
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${city}&days=10&aqi=no&alerts=no`;
+        const response = await fetch(url)
+        const weatherData = await response.json();
+        
+        return weatherData;
 
     } catch (error) {
-        alert('Cannot connect to the server :(');
-    }
-};
-
-export const getLocation = async (city) => {
-
-    try {
-        const queary = `?apikey=${key}&q=${city}`;
-
-        let res = await fetch(`${locationBase}/${queary}`);
-        const data = await res.json();
-
-        return data[0];
-
-    } catch (error) {
-        alert('Cannot connect to the server :(');
-    }
-};
-
-export const geoLocation = async (lat, long) => {
-    const url = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${lat}%2C%20${long}&details=toplevel%3Dtrue`
-    url = url.replace(/^http:\/\//i, 'https://');
-    try {
-        let res = await fetch(url);
-
-        const data = await res.json();
-        return data;
-
-    } catch (error) {
-        alert('Cannot connect to the server :(');
+        alert('Cannot conect to server :(');
     };
 };

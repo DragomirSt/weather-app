@@ -1,28 +1,26 @@
 
 import { useState } from 'react';
 
-import extractDate from "../../helpers/extractDate";
-
-const FiveDaysAheadComponent = ({
+const WeatherAheadComponent = ({
     weatherInfo
 }) => {
     const [show, setShow] = useState(true);
-
+  
     const daily = (
         <div className="days-forecast">
             <div className='date'>
-                {extractDate(weatherInfo.Date)}
+                {weatherInfo.date}
             </div>
             <div className="weather-days-text">
-                {weatherInfo.Day.IconPhrase}
+                {weatherInfo.day.condition.text}
             </div>
             <div className='icon'>
-                <img src={`./icons/icon${weatherInfo.Day.Icon}.png`} alt="" />
+                <img src={weatherInfo.day.condition.icon} alt="" />
             </div>
             <div className="temp">
                 <h3>
-                    {Math.round((weatherInfo.Temperature.Minimum.Value - 32) * (5 / 9))} /
-                    {Math.round((weatherInfo.Temperature.Maximum.Value - 32) * (5 / 9))}
+                    {weatherInfo.day.mintemp_c} /
+                    {weatherInfo.day.maxtemp_c}
                     <> *C</>
                 </h3>
             </div>
@@ -34,22 +32,22 @@ const FiveDaysAheadComponent = ({
 
     const dailyDetails = (
         <div className='div-forecast-details'>
-            <div className='cloud-text'>Cloud Cover: </div>
+            <div className='cloud-text'>Humidity: </div>
             <div className='cloud-cover'>
                 <h3>
-                    {weatherInfo.Day.CloudCover}  %
+                    {weatherInfo.day.avghumidity}  %
                 </h3>
             </div>
             <div className='rain-text'>Rain: </div>
             <div className='rain-percent'>
                 <h3>
-                    {weatherInfo.Day.RainProbability}  %
+                    {weatherInfo.day.daily_chance_of_rain}  %
                 </h3>
             </div>
             <div className='wind-text'>Wind Speed: </div>
             <div className='wind-speed'>
                 <h3>
-                    {Math.round(1.609344) * weatherInfo.Day.Wind.Speed.Value}  km/h
+                    {weatherInfo.day.maxwind_kph}  km/h
                 </h3>
             </div>
             <div className='button'>
@@ -65,4 +63,4 @@ const FiveDaysAheadComponent = ({
     );
 };
 
-export default FiveDaysAheadComponent;
+export default WeatherAheadComponent;

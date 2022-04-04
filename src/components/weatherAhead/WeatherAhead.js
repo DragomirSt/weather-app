@@ -1,15 +1,15 @@
 
-import './FiveDaysAheadComponents.css';
+import './WeatherAhead.css';
 
 import { useEffect, useState, useContext } from "react";
 
 import { DayContext } from "../../contexts/DayContext";
-import { getWeatherFiveDays } from "../../weather-forecast/weather";
+import { getWeatherAhead } from "../../weather-forecast/weather";
 
-import FiveDaysAheadComponent from "./FiveDaysAheadComponents";
+import WeatherAheadComponent from "./WeatherAheadComponent";
 import LoadingComponent from '../common/LoadingComponent';
 
-const FiveDaysAhead = () => {
+const WeatherAhead = () => {
     const [weather, setWeather] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -20,12 +20,12 @@ const FiveDaysAhead = () => {
         const signal = controller.signal;
         setLoading(true);
 
-        getWeatherFiveDays(cityKey.key, {
+        getWeatherAhead(cityKey.key, {
             signal: signal
         })
             .then(res => {
-
-                setWeather(res.DailyForecasts);
+                console.log(res.forecast.forecastday)
+                setWeather(res.forecast.forecastday);
             })
             .finally(() => {
                 setLoading(false);
@@ -45,12 +45,12 @@ const FiveDaysAhead = () => {
     return (
         <div className='five-day-container'>
             {!!weather && weather.map((x, index) =>
-                <FiveDaysAheadComponent
+                <WeatherAheadComponent
                     weatherInfo={x}
-                    key={index} />
+                    key={x.date} />
             )}
-        </div>
+         </div>
     );
 };
 
-export default FiveDaysAhead;
+export default WeatherAhead;

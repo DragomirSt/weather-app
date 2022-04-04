@@ -4,7 +4,7 @@ import './HourlyWeather.css';
 import { useEffect, useState, useContext } from "react";
 
 import { DayContext } from '../../contexts/DayContext';
-import { hourlyForecastWeather } from "../../weather-forecast/weather";
+import { currentWeather } from "../../weather-forecast/weather";
 
 import HourlyComponent from './HouryComponent';
 import LoadingComponent from '../common/LoadingComponent';
@@ -20,12 +20,15 @@ const HourlyWheater = () => {
         const signal = controller.signal;
         setLoading(true);
 
-        hourlyForecastWeather(cityKey.key, {
+        currentWeather(cityKey.key, {
             signal: signal
         })
             .then(res => {
-
-                setWeather(res);
+                let data;
+                res.forecast.forecastday.forEach(element => {
+                    data = element.hour;
+                });
+               setWeather(data);
             })
             .finally(() => {
                 setLoading(false);
@@ -41,13 +44,12 @@ const HourlyWheater = () => {
             <LoadingComponent />
         </>
     };
-
+    
     return (
         <div className='hourly-container'>
             {!!weather && weather.map((x, index) =>
                 <HourlyComponent weatherInfo={x}
                     key={index} />)}
-
         </div>
     );
 };

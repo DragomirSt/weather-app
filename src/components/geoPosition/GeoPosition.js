@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { DayContext } from '../../contexts/DayContext';
-import { geoLocation } from '../../weather-forecast/weather';
+import { getGeoLocation } from '../../weather-forecast/weather';
 
 const GeoPosition = () => {
 
@@ -37,10 +37,10 @@ const GeoPosition = () => {
 
     useEffect(() => {
         if (location.loaded === true) {
-            geoLocation(location.lat, location.lng)
+            getGeoLocation(location.lat, location.lng)
                 .then(res => {
-
-                    setCityKey({ key: res.Key, cityName: res.LocalizedName });
+                    const city = res.map(x => x.name).splice(0, 1);
+                    setCityKey({ key: city });
                     navigate('/today');
                 });
         }
