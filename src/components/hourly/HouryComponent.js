@@ -10,7 +10,7 @@ const HourlyComponent = ({
     const hourly = (
         <div className='hourly-weather'>
             <div className="time">
-                {time}
+                {time} h
 
             </div>
             <div className="icon">
