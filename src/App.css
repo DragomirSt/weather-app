@@ -29,9 +29,9 @@ body {
     padding: 1px;
 }
 
-.footer>div {
+.footer>h2 {
     text-align: center;
-    color: ivory;
-    font-size: 18px;
-    text-shadow: 2px 0px 7px #080808b4;   
+    text-shadow: 2px 0px 7px #080808b4; 
+    padding: 5px;
+    margin: 5px;  
 }
