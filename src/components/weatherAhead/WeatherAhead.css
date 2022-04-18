@@ -17,38 +17,43 @@
     height: 130px;
     margin-top: 40px;
     padding: 20px;
-    color: rgb(5, 5, 5);
 }
 
 
 .toggle-button {
-    background-color: rgb(218, 205, 205);
+    background-color: rgba(85, 96, 110, 0.116);
     box-shadow: 2px 0px 7px #080808b4;
     width: 95px;
     height: 30px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 18px;
     grid-area: button;
     border: none;
+    color: blue
 } 
 
 .toggle-button:hover {
     cursor: pointer;
+    background-color: #161618d0;
+    color: white;
 }
 
 .toggle-button-hide {
-    background-color: rgb(218, 205, 205);
+    background-color: rgba(85, 96, 110, 0.116);
     box-shadow: 2px 0px 7px #080808b4;
     width: 95px;
     height: 30px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 10px;
     border: none;
+    color: blue;
 }
 
 .toggle-button-hide:hover {
     cursor: pointer;
+    background-color: #161618d0;
+    color: white;
 }
 
 .date {

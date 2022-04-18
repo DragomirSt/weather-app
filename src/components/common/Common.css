@@ -1,12 +1,12 @@
 
 .common-div {
     margin-top: 40px;
-    margin-left: 200px;
     background-color:  #8c88a3d0;
     box-shadow: 2px 0px 7px #080808b4;
     width: 500px;
-    height: 140px;
+    height: 90px;
     border-radius: 25px;
+    text-align: center;
     padding: 20px;
     color: rgb(5, 5, 5);
 }

@@ -104,32 +104,38 @@
 }
 
 .btn-details {
-    background-color: rgb(218, 205, 205);
+    background-color: rgba(85, 96, 110, 0.116);
     box-shadow: 2px 0px 7px #080808b4;
     width: 95px;
     height: 30px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 34px;
     border: none;
+    color: blue;
 }
 
 .btn-details:hover {
     cursor: pointer;
+    background-color: #161618d0;;
+    color: white;
 }
 
 .btn-hide-details {
-    background-color: rgb(218, 205, 205);
+    background-color: hsla(214, 13%, 38%, 0.116);
     box-shadow: 2px 0px 7px #080808b4;
     width: 95px;
     height: 30px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 18px;
     border: none;
+    color: blue;
 }
 
 .btn-hide-details:hover {
     cursor: pointer;
+    background-color: #161618d0;
+    color: white;
 }
 
 .hourly-container {
