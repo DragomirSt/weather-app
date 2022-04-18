@@ -2,49 +2,36 @@
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
-
-import { DayContext } from './contexts/DayContext';
+import { CityContextProvider } from './contexts/CityContext';
 
 import Navigation from "./components/navigation/Navigation";
+import HomePage from './components/home/HomePage';
 import Today from './components/today/Today';
 import HourlyWheater from './components/hourly/HourlyWeather';
 import WeatherAhead from './components/weatherAhead/WeatherAhead';
 import GeoPosition from './components/geoPosition/GeoPosition';
 import ErrorBoundary from './components/common/ErrorBoundary';
 
-const initialState = {
-  key: null,
-  cityName: null
-}
-
 function App() {
-
-  const [cityKey, setKey] = useState(initialState);
-
-  const setCityKey = (key) => {
-    setKey(key)
-  };
-
   return (
     <ErrorBoundary>
-      <DayContext.Provider value={{ cityKey, setCityKey }} >
+      <CityContextProvider >
         <main className='app'>
           <Navigation />
-
           <Routes>
+            <Route path='/' element={<HomePage />} />
             <Route path='/today' element={<Today />} />
             <Route path='/hourly' element={<HourlyWheater />} />
             <Route path='/daily' element={<WeatherAhead />} />
             <Route path='/location' element={<GeoPosition />} />
           </Routes>
           <footer className='footer'>
-            <div>
+            <h2>
               Weather Application
-            </div>
+            </h2>
           </footer>
         </main>
-      </DayContext.Provider>
+      </CityContextProvider>
     </ErrorBoundary>
   );
 };
