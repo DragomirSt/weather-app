@@ -4,11 +4,13 @@ export const currentWeather = async (city) => {
         const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${city}&aqi=no`;
         const response = await fetch(url);
         const weatherData = await response.json();
-
+        if (weatherData.error) {
+            throw (weatherData.error.message);
+        }
         return weatherData;
 
     } catch (error) {
-        alert('Cannot conect to server :(');
+        throw (error);
     };
 };
 
@@ -30,7 +32,7 @@ export const getWeatherAhead = async (city) => {
         const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${city}&days=10&aqi=no&alerts=no`;
         const response = await fetch(url)
         const weatherData = await response.json();
-        
+
         return weatherData;
 
     } catch (error) {
