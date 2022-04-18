@@ -49,7 +49,7 @@ const HourlyComponent = ({
                 </h3>
             </div>
             <div className='button'>
-                <button className='btn-hide-details' onClick={() => setShow(!show)}>Hide Details</button>
+                <button className='btn-hide-details' onClick={() => setShow(!show)}>Hide</button>
             </div>
         </div>
 

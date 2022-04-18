@@ -51,7 +51,7 @@ const WeatherAheadComponent = ({
                 </h3>
             </div>
             <div className='button'>
-                <button className='toggle-button-hide' onClick={() => setShow(!show)}>Hide Details</button>
+                <button className='toggle-button-hide' onClick={() => setShow(!show)}>Hide</button>
             </div>
         </div>
     );
