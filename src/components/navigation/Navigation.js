@@ -2,44 +2,44 @@
 import './Navigation.css';
 
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { useContext } from 'react';
 
-import { DayContext } from '../../contexts/DayContext';
+import { CityContext } from '../../contexts/CityContext';
 
 const Navigation = () => {
 
     const navigate = useNavigate();
-    const { cityKey, setCityKey } = useContext(DayContext);
-    const [city, setCity] = useState('');
+    const { city, setCityName } = useContext(CityContext);
 
     const searchLocation = (e) => {
         e.preventDefault();
-        setCityKey({ key: city.label.split(',')[0] });
+        const formData = new FormData(e.target);
+        const city = formData.get('city')
+
+        setCityName(city);
+        e.target.reset();
         navigate('/today');
     };
 
     return (
         <nav className="topnav">
-            {cityKey.key ?
+            {city ?
                 <>
                     <Link to="/today">Now</Link>
                     <Link to="/hourly">Hourly</Link>
                     <Link to="/daily">Daily</Link>
                 </>
                 : <Link to="/location">location</Link>}
-            <form className="form-input" onSubmit={searchLocation}>
-                <GooglePlacesAutocomplete
-                    selectProps={{
-                        city,
-                        onChange: setCity,
-                    }}
-                />
-            </form>
-            {cityKey.key ?
-                <div className='city'>
-                    weather in: {cityKey.key}
+            <form className='form' method='POST' type="text" onSubmit={searchLocation}>
+                <div className='form-div'>
+                    <input className="form-input" name='city' placeholder='Enter your location ...' />
+                    <button className='submit-button'>Search</button>
                 </div>
+            </form>
+            {city ?
+                <h3 className='city'>
+                    weather in: {city}
+                </h3>
                 : null}
         </nav>
     );
