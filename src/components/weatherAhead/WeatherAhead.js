@@ -2,8 +2,8 @@
 import './WeatherAhead.css';
 
 import { useEffect, useState, useContext } from "react";
+import { CityContext } from '../../contexts/CityContext';
 
-import { DayContext } from "../../contexts/DayContext";
 import { getWeatherAhead } from "../../weather-forecast/weather";
 
 import WeatherAheadComponent from "./WeatherAheadComponent";
@@ -13,14 +13,14 @@ const WeatherAhead = () => {
     const [weather, setWeather] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const { cityKey } = useContext(DayContext);
+    const { city } = useContext(CityContext);
 
     useEffect(() => {
         const controller = new AbortController();
         const signal = controller.signal;
         setLoading(true);
 
-        getWeatherAhead(cityKey.key, {
+        getWeatherAhead(city, {
             signal: signal
         })
             .then(res => {
@@ -34,7 +34,7 @@ const WeatherAhead = () => {
             controller.abort();
         };
 
-    }, [cityKey.key]);
+    }, [city]);
 
     if (loading) {
         return <>

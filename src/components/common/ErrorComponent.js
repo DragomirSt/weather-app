@@ -5,7 +5,7 @@ const ErrorComponent = () => {
 
     return (
         <div className='common-div'>
-            <h2>Something went wrong :(</h2>
+            <h1>Something went wrong .... :(</h1>
         </div>
     );
 };

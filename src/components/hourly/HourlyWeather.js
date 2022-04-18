@@ -2,8 +2,8 @@
 import './HourlyWeather.css';
 
 import { useEffect, useState, useContext } from "react";
+import { CityContext } from '../../contexts/CityContext';
 
-import { DayContext } from '../../contexts/DayContext';
 import { currentWeather } from "../../weather-forecast/weather";
 
 import HourlyComponent from './HouryComponent';
@@ -13,14 +13,14 @@ const HourlyWheater = () => {
     const [weather, setWeather] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const { cityKey } = useContext(DayContext);
+    const { city } = useContext(CityContext);
 
     useEffect(() => {
         const controller = new AbortController();
         const signal = controller.signal;
         setLoading(true);
 
-        currentWeather(cityKey.key, {
+        currentWeather(city, {
             signal: signal
         })
             .then(res => {
@@ -37,7 +37,7 @@ const HourlyWheater = () => {
             controller.abort();
         };
 
-    }, [cityKey.key]);
+    }, [city]);
 
     if (loading) {
         return <>

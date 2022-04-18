@@ -2,12 +2,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { DayContext } from '../../contexts/DayContext';
+import { CityContext } from '../../contexts/CityContext';
 import { getGeoLocation } from '../../weather-forecast/weather';
 
 const GeoPosition = () => {
 
-    const { setCityKey } = useContext(DayContext);
+    const { setCityName } = useContext(CityContext);
     const navigate = useNavigate();
 
     const [location, setLocation] = useState({
@@ -40,7 +40,7 @@ const GeoPosition = () => {
             getGeoLocation(location.lat, location.lng)
                 .then(res => {
                     const city = res.map(x => x.name).splice(0, 1);
-                    setCityKey({ key: city });
+                    setCityName(city);
                     navigate('/today');
                 });
         }
