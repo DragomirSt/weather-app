@@ -1,11 +1,10 @@
-
 .topnav {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
-    margin-top: 15px;
-    background-color:  #8c88a3d0;
+    margin-top: 20px;
+    background-color: #8c88a3d0;
     box-shadow: 2px 0px 7px #080808b4;
     border-radius: 25px;
     padding: 1px;
@@ -16,27 +15,22 @@
     display: block;
     color: #000000d5;
     text-align: center;
-    text-shadow: 0.5px 0.5px  #0000003f;
-    padding: 12px 15px;
+    text-shadow: 0.5px 0.5px #0000003f;
+    padding: 15px 15px;
     text-decoration: none;
-    font-size: 20px;  
-    margin-left: 20px;
-}
-
-a:hover {
-    color: ivory;
     font-size: 20px;
-    text-shadow: 0.5px 0.5px  #0000003f;
+    margin-left: 20px;
+    color: ivory;
 }
 
 .city {
     margin-left: 200px;
     margin-top: 15px;
-    text-shadow: 1px 0px 0px #080808b4; 
+    text-shadow: 1px 0px 0px #080808b4;
 }
 
 .form {
-    padding: 7px;
+    padding: 12px 18px;
 }
 
 .form-div {
@@ -47,9 +41,10 @@ a:hover {
     width: 280px;
     height: 30px;
     border-radius: 25px;
-    font-size: 17px;
+    font-size: 18px;
+    padding-left: 20px;
     border: none;
-    box-shadow: 2px 0px 7px #080808b4;
+    color: ivory;
 }
 
 .submit-button {
@@ -62,11 +57,17 @@ a:hover {
     font-size: 18px;
     border: none;
     border-radius: 25px;
+    color: blue;
     background-color: rgba(54, 81, 116, 0.253);
 }
 
 .submit-button:hover {
     cursor: pointer;
-    background-color: #161618d0;;
+    background-color: #161618d0;
     color: white;
+}
+
+.topnav a:hover {
+    background-color: #161618d0;
+    border-radius: 15px;
 }

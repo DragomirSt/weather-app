@@ -1,21 +1,21 @@
 
 .today-div-forecast {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
-    "city . date"
-    "weatherInfo temps weatherIcon"
-    "btnDaily . btnHourly";
-    gap: 1rem 1rem 0.5rem 0.5rem;
+    "city city city city"
+    ". date date ."
+    "weatherInfo weatherInfo temps weatherIcon"
+    "btnDaily . . btnHourly";
     margin-top: 40px;
     background-color:  #8c88a3d0;
     box-shadow: 2px 0px 7px #080808b4;
     width: 325px;
     height: 360px;
     border-radius: 25px;
-    padding: 30px;    
-    color: rgb(5, 5, 5);
+    padding: 35px;    
+
 }
 
 .city-temps {
@@ -27,26 +27,27 @@
 
 .date {
     grid-area: date;
-    color: ivory;
+    color: black;
     text-shadow: 2px 0px 7px #080808b4; 
-    justify-self: start;
+    font-size: 25px;
 }
 
 .city-name {
     color: ivory;
-    font-size: 25px;
+    justify-self: center;
+    font-size: 27px;
     text-shadow: 2px 0px 7px #080808b4; 
 }
 
 .weather-icon {
    grid-area: weatherIcon;
-   justify-self: start;
+   justify-self: center;
 }
 
 .weather-info {
   grid-area: weatherInfo;
-  color: ivory;
-  font-size: 20px;
+  color: black;
+  font-size: 24px;
   text-shadow: 2px 0px 7px #080808b4; 
 }
 
@@ -67,6 +68,7 @@
     width: 100px;
     text-align: center;
     font-size: 25px;
+    padding: 4px;
 }
 
 .fivedaysBtn a:hover {
@@ -82,6 +84,7 @@
     width: 100px;
     text-align: center;
     font-size: 25px;
+    padding: 4px;
 }
 
 .hourlyBtn a:hover {
