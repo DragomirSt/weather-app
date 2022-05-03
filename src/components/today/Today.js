@@ -72,7 +72,7 @@ const Today = () => {
                         {x.current.condition.text}
                     </div>
                     <div className="date">
-                        {x.location.localtime}
+                        {x.location.localtime} h
                     </div>
                     <div className="fivedaysBtn">
                         <Link to="/daily">Daily</Link>

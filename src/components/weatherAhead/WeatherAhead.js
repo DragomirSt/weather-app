@@ -24,7 +24,6 @@ const WeatherAhead = () => {
             signal: signal
         })
             .then(res => {
-                console.log(res.forecast.forecastday)
                 setWeather(res.forecast.forecastday);
             })
             .finally(() => {
@@ -43,13 +42,13 @@ const WeatherAhead = () => {
     };
 
     return (
-        <div className='five-day-container'>
+        <div>
             {!!weather && weather.map((x, index) =>
                 <WeatherAheadComponent
                     weatherInfo={x}
                     key={x.date} />
             )}
-         </div>
+        </div>
     );
 };
 
